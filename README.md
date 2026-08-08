@@ -1,0 +1,1 @@
+# Desafio-Resid-ncia---Gerenciador-de-Eventos
