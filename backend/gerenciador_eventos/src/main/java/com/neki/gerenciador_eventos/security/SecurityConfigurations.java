@@ -38,8 +38,10 @@ public class SecurityConfigurations {
             .requestMatchers(HttpMethod.POST, "/admins").permitAll()
             .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
             .requestMatchers("/swagger-ui/**", "/v3/api-docs/**", "/swagger-ui.html").permitAll()
+            .requestMatchers("/h2-console/**").permitAll()
             .anyRequest().authenticated()
         )
+        .headers(headers -> headers.frameOptions(frameOptions -> frameOptions.sameOrigin()))
         .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
         .build();
     }
@@ -47,7 +49,7 @@ public class SecurityConfigurations {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(List.of("*"));
+        configuration.setAllowedOrigins(List.of("http://localhost:5173"));
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"));
         configuration.setAllowedHeaders(List.of("Authorization", "Cache-Control", "Content-Type"));
         configuration.setAllowCredentials(true);
