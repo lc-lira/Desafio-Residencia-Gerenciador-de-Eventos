@@ -7,6 +7,9 @@ import org.springframework.stereotype.Service;
 
 import com.neki.gerenciador_eventos.dtos.AdminRequestDTO;
 import com.neki.gerenciador_eventos.dtos.AdminResponseDTO;
+import com.neki.gerenciador_eventos.exceptions.BadRequestException;
+import com.neki.gerenciador_eventos.exceptions.ConflictException;
+import com.neki.gerenciador_eventos.exceptions.ResourceNotFoundException;
 import com.neki.gerenciador_eventos.models.Admin;
 import com.neki.gerenciador_eventos.repositories.AdminRepository;
 
@@ -21,10 +24,10 @@ public class AdminService {
 
     public AdminResponseDTO registrarAdmin(AdminRequestDTO request) {
         if (this.repository.findByEmail(request.email()) != null)
-            throw new RuntimeException("Email já cadastrado!");
+            throw new ConflictException("Email já cadastrado!");
 
         if (!request.senha().equals(request.confirmarSenha())) {
-            throw new IllegalArgumentException("As senhas não coincidem.");
+            throw new BadRequestException("As senhas não coincidem.");
         }
 
         String senhaCriptografada = passwordEncoder.encode(request.senha());
@@ -42,14 +45,14 @@ public class AdminService {
 
     public AdminResponseDTO buscarAdminPorId(Long id) {
         Admin admin = repository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Administrador não encontrado com o ID: " + id));
+                .orElseThrow(() -> new ResourceNotFoundException("Administrador não encontrado com o ID: " + id));
 
         return new AdminResponseDTO(admin);
     }
 
     public AdminResponseDTO alterarNomeAdmin(Long id, AdminRequestDTO request) {
         Admin adminBanco = repository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Administrador não encontrado com o ID: " + id));
+                .orElseThrow(() -> new ResourceNotFoundException("Administrador não encontrado com o ID: " + id));
 
         adminBanco.setNome(request.nome());
 
@@ -60,7 +63,7 @@ public class AdminService {
 
     public void excluirAdmin(long id) {
         Admin admin = repository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Administrador não encontrado com o ID: " + id));
+                .orElseThrow(() -> new ResourceNotFoundException("Administrador não encontrado com o ID: " + id));
 
         repository.delete(admin);
     }
