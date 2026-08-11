@@ -1,0 +1,97 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 24px;
+}
+
+h1 {
+    color: #ffffff;
+    font-size: 32px;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px;
+    border-radius: 16px;
+    background-color: #2e2d4e;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.25);
+}
+
+form button {
+    border-radius: 30px;
+    background-color: #8b8ae1;
+    height: 44px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 14px;
+    color: #fff;
+    transition: opacity 0.2s ease;
+}
+
+form button:hover {
+    opacity: 0.88;
+}
+
+form input {
+    border: 1px solid #48456c;
+    border-radius: 30px;
+    height: 44px;
+    background-color: #363653;
+    color: #fff;
+    font-size: 16px;
+    padding: 0 16px;
+    outline: none;
+}
+
+form input::placeholder {
+    color: #b7b7d9;
+}
+
+.remember-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #e6e6ff;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.remember-row input {
+    width: 16px;
+    height: 16px;
+    accent-color: #8b8ae1;
+}
+
+.form-footer {
+    text-align: center;
+    color: #d9d9f7;
+    font-size: 14px;
+    margin-top: 4px;
+}
+
+.link-button {
+    background: transparent !important;
+    border: none;
+    color: #8b8ae1;
+    font-weight: 600;
+    cursor: pointer;
+    margin-left: 6px;
+    padding: 0;
+    height: auto !important;
+}
+
+.error-message {
+    color: #ff8a8a;
+    font-size: 13px;
+    margin-top: -10px;
+    display: block;
+}
