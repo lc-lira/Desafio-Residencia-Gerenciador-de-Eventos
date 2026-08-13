@@ -26,12 +26,20 @@ public class EventoService {
 
     private final EventoRepository eventoRepository;
 
-    public Page<EventoResponseDTO> listarEventosAdmin(Pageable pageable) {
+    public Page<EventoResponseDTO> listarEventosAdmin(String nome, Pageable pageable) {
         Admin adminLogado = (Admin) SecurityContextHolder.getContext()
                 .getAuthentication()
                 .getPrincipal();
-        return eventoRepository.findByAdminId_Id(adminLogado.getId(), pageable)
-                .map(EventoResponseDTO::new);
+
+        Page<Evento> eventos;
+        if (nome == null || nome.isBlank()) {
+            eventos = eventoRepository.findByAdminId_Id(adminLogado.getId(), pageable);
+        } else {
+            eventos = eventoRepository.findByAdminId_IdAndNomeContainingIgnoreCase(
+                    adminLogado.getId(), nome.trim(), pageable);
+        }
+
+        return eventos.map(EventoResponseDTO::new);
     }
 
     public EventoResponseDTO buscarEventoPorID(Long id){
@@ -69,12 +77,9 @@ public class EventoService {
         if (!evento.getAdminId().getId().equals(adminLogado.getId())) {
             throw new ForbiddenException("Você não tem permissão para alterar este evento.");
         }
-
-        evento.setNome(request.nome());
         evento.setDataInicio(request.dataInicio());
         evento.setDataFim(request.dataFim());
         evento.setLocalizacao(converterLocalizacao(request.localizacao()));
-        evento.setImagem(request.imagem());
 
         return new EventoResponseDTO(eventoRepository.save(evento));
     }

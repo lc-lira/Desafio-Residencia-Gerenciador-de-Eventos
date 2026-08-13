@@ -2,6 +2,7 @@ package com.neki.gerenciador_eventos.dtos;
 
 import java.time.LocalDateTime;
 
+import jakarta.persistence.Column;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.FutureOrPresent;
 import jakarta.validation.constraints.NotBlank;
@@ -25,7 +26,7 @@ public record EventoRequestDTO(
     LocalizacaoDTO localizacao,
 
     @NotBlank(message = "URL da imagem é obrigatória")
-    @Size(max = 500, message = "URL da imagem deve ter no máximo 500 caracteres")
+    @Column(columnDefinition = "TEXT")
     String imagem
 ) {
 }

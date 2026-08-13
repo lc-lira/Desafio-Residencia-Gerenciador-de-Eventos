@@ -1,0 +1,108 @@
+.form-evento {
+    background: #f5f5f5;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.form-evento h2 {
+    margin-top: 0;
+    color: #333;
+    font-size: 20px;
+}
+
+.form-evento h3 {
+    font-size: 16px;
+    color: #555;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.form-evento form {
+    display: grid;
+    gap: 12px;
+}
+
+.form-evento input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: inherit;
+}
+
+.form-evento input:focus {
+    outline: none;
+    border-color: #4caf50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+}
+
+.form-evento button {
+    padding: 12px;
+    background: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+    margin-top: 10px;
+}
+
+.form-evento button:hover:not(:disabled) {
+    background: #45a049;
+}
+
+.form-evento button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+.form-evento .erro {
+    background: #f8d7da;
+    color: #721c24;
+    padding: 12px;
+    border-radius: 4px;
+    border: 1px solid #f5c6cb;
+    margin-bottom: 15px;
+}
+
+.form-evento .upload-imagem {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    border: 1px solid #d0d5dd;
+    border-radius: 6px;
+    padding: 8px 10px;
+    background: #fff;
+}
+
+.form-evento .upload-imagem input[type='file'] {
+    display: none;
+}
+
+.form-evento .upload-imagem__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 14px;
+    border: 1px solid #4caf50;
+    border-radius: 6px;
+    background: #eaf7eb;
+    color: #1d6f2c;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.form-evento .upload-imagem__button:hover {
+    background: #dff3e2;
+}
+
+.form-evento .upload-imagem__nome {
+    color: #555;
+    font-size: 13px;
+    word-break: break-word;
+}
