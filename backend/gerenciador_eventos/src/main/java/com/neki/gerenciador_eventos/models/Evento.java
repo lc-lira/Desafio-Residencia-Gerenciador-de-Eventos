@@ -46,4 +46,4 @@ public class Evento {
     @JoinColumn(name = "admin_id")
     private Admin adminId;
     
-}
+}  

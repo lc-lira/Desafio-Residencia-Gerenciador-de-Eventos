@@ -4,10 +4,11 @@
     justify-content: center;
     min-height: 100vh;
     padding: 24px;
+    background: linear-gradient(180deg, #f4faf8 0%, #edfaf4 100%);
 }
 
 h1 {
-    color: #ffffff;
+    color: #111111;
     font-size: 32px;
     margin-bottom: 8px;
     text-align: center;
@@ -19,21 +20,22 @@ form {
     gap: 20px;
     padding: 30px;
     border-radius: 16px;
-    background-color: #2e2d4e;
+    background-color: #ffffff;
     width: 100%;
     max-width: 420px;
-    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 14px 40px rgba(17, 17, 17, 0.08);
+    border: 1px solid #d9f3ea;
 }
 
 form button {
     border-radius: 30px;
-    background-color: #8b8ae1;
+    background-color: #9ae7d1;
     height: 44px;
     border: none;
     font-weight: bold;
     cursor: pointer;
     font-size: 14px;
-    color: #fff;
+    color: #111111;
     transition: opacity 0.2s ease;
 }
 
@@ -42,25 +44,25 @@ form button:hover {
 }
 
 form input {
-    border: 1px solid #48456c;
+    border: 1px solid #c7ebdf;
     border-radius: 30px;
     height: 44px;
-    background-color: #363653;
-    color: #fff;
+    background-color: #f5fbf9;
+    color: #111111;
     font-size: 16px;
     padding: 0 16px;
     outline: none;
 }
 
 form input::placeholder {
-    color: #b7b7d9;
+    color: #5a6f69;
 }
 
 .remember-row {
     display: flex;
     align-items: center;
     gap: 10px;
-    color: #e6e6ff;
+    color: #2b2b2b;
     font-size: 14px;
     cursor: pointer;
 }
@@ -68,12 +70,12 @@ form input::placeholder {
 .remember-row input {
     width: 16px;
     height: 16px;
-    accent-color: #8b8ae1;
+    accent-color: #72d3b6;
 }
 
 .form-footer {
     text-align: center;
-    color: #d9d9f7;
+    color: #3a3a3a;
     font-size: 14px;
     margin-top: 4px;
 }
@@ -81,7 +83,7 @@ form input::placeholder {
 .link-button {
     background: transparent !important;
     border: none;
-    color: #8b8ae1;
+    color: #1d8a70;
     font-weight: 600;
     cursor: pointer;
     margin-left: 6px;
@@ -90,7 +92,7 @@ form input::placeholder {
 }
 
 .error-message {
-    color: #ff8a8a;
+    color: #d16a60;
     font-size: 13px;
     margin-top: -10px;
     display: block;

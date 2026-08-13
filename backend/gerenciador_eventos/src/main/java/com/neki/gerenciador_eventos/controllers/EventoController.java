@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.neki.gerenciador_eventos.dtos.EventoRequestDTO;
@@ -30,9 +31,10 @@ public class EventoController {
 
     @GetMapping
     public ResponseEntity<Page<EventoResponseDTO>> listarEventosAdmin(
+            @RequestParam(required = false) String nome,
             @PageableDefault(page = 0, size = 10, sort = { "dataInicio" }) Pageable pageable) {
 
-        Page<EventoResponseDTO> eventos = service.listarEventosAdmin(pageable);
+        Page<EventoResponseDTO> eventos = service.listarEventosAdmin(nome, pageable);
         return ResponseEntity.ok(eventos);
     }
 

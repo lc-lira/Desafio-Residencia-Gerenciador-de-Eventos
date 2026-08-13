@@ -1,0 +1,132 @@
+.home-page {
+    background: #f3f8f6;
+    min-height: 100vh;
+    color: #111111;
+}
+
+.home-main {
+    padding: 40px 32px;
+}
+
+.home-title {
+    color: #111111;
+    margin-bottom: 8px;
+}
+
+.home-subtitle {
+    color: #2c2c2c;
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: center;
+}
+
+.home-container {
+    display: grid;
+    grid-template-columns: 360px minmax(0, 1fr);
+    gap: 24px;
+    align-items: start;
+}
+
+.home-form-wrapper {
+    position: sticky;
+    top: 20px;
+}
+
+.home-cards-wrapper {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.home-cards-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 18px;
+}
+
+.home-cards-header h2 {
+    margin: 0;
+    color: #111111;
+    font-size: 1.5rem;
+}
+
+.home-cards-header span {
+    color: #3d5d57;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.home-search {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto auto;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 100%;
+}
+
+.home-search input {
+    width: 100%;
+    min-width: 0;
+    padding: 10px 12px;
+    border: 1px solid #d0d8d5;
+    border-radius: 10px;
+    font-size: 0.94rem;
+    background: #ffffff;
+    box-sizing: border-box;
+}
+
+.home-search button {
+    border: none;
+    background: #1d6f5d;
+    color: #ffffff;
+    padding: 10px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    min-width: 90px;
+}
+
+.home-search__clear {
+    background: #e2e8e6 !important;
+    color: #1f2d2a !important;
+}
+
+.home-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.pagination__button {
+    border: none;
+    border-radius: 10px;
+    background: #1d6f5d;
+    color: #ffffff;
+    padding: 10px 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.pagination__button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.pagination__status {
+    color: #2b3a37;
+    font-weight: 600;
+}

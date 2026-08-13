@@ -41,6 +41,7 @@ function LoginPage() {
 
             if (response.data.token) {
                 localStorage.setItem('token', response.data.token)
+                localStorage.setItem('userName', response.data.nome)
             }
 
             if (lembrarDeMim) {
