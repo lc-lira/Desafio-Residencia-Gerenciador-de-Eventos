@@ -72,7 +72,7 @@ function CadastrarAdmin() {
         />
 
         <input
-          placeholder='Senha'
+          placeholder='Senha(min: 6 caracteres)'
           name='senha'
           type='password'
           value={form.senha}
@@ -80,7 +80,7 @@ function CadastrarAdmin() {
         />
 
         <input
-          placeholder='Confirmar Senha'
+          placeholder='Confirmar Senha(min: 6 caracteres)'
           name='confirmarSenha'
           type='password'
           value={form.confirmarSenha}
