@@ -130,3 +130,128 @@
     color: #2b3a37;
     font-weight: 600;
 }
+
+@media (max-width: 1024px) {
+    .home-container {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .home-form-wrapper {
+        position: static;
+    }
+}
+
+@media (max-width: 768px) {
+    .home-main {
+        padding: 20px 16px;
+    }
+
+    .home-title {
+        font-size: 1.8rem;
+        text-align: center;
+    }
+
+    .home-subtitle {
+        font-size: 0.95rem;
+        margin-bottom: 20px;
+    }
+
+    .home-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .home-form-wrapper {
+        position: static;
+        order: -1;
+    }
+
+    .home-cards-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .home-cards-header h2 {
+        font-size: 1.2rem;
+    }
+
+    .home-search {
+        grid-template-columns: 1fr auto;
+        gap: 8px;
+    }
+
+    .home-search input {
+        grid-column: 1 / -1;
+    }
+
+    .home-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 16px;
+    }
+
+    .pagination {
+        gap: 8px;
+        margin-top: 16px;
+    }
+
+    .pagination__button {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .home-main {
+        padding: 16px 12px;
+    }
+
+    .home-title {
+        font-size: 1.5rem;
+        margin-bottom: 4px;
+    }
+
+    .home-subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 16px;
+    }
+
+    .home-cards-header h2 {
+        font-size: 1rem;
+    }
+
+    .home-cards-header span {
+        font-size: 0.85rem;
+    }
+
+    .home-search {
+        grid-template-columns: 1fr;
+        gap: 6px;
+    }
+
+    .home-search button {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+        min-width: 70px;
+    }
+
+    .home-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .event-card__title {
+        font-size: 1.1rem;
+    }
+
+    .event-card__image,
+    .event-card__placeholder {
+        height: 150px;
+    }
+
+    .pagination__button {
+        padding: 6px 10px;
+        font-size: 0.85rem;
+    }
+}

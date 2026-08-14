@@ -137,3 +137,86 @@
     background: #e5e7eb;
     color: #111827;
 }
+
+@media (max-width: 768px) {
+    .event-card__image,
+    .event-card__placeholder {
+        height: 150px;
+    }
+
+    .event-card__title {
+        font-size: 1.1rem;
+    }
+
+    .event-card__header {
+        padding: 12px 12px 0;
+    }
+
+    .event-card__content {
+        padding: 12px 12px 16px;
+    }
+
+    .event-card__info {
+        font-size: 0.95rem;
+        margin-bottom: 6px;
+    }
+}
+@media (max-width: 480px) {
+    .event-card {
+        border-radius: 12px;
+    }
+
+    .event-card__image,
+    .event-card__placeholder {
+        height: 120px;
+    }
+
+    .event-card__title {
+        font-size: 1rem;
+    }
+
+    .event-card__header {
+        gap: 8px;
+        padding: 10px 10px 0;
+    }
+
+    .event-card__action {
+        width: 28px;
+        height: 28px;
+        font-size: 0.9rem;
+    }
+
+    .event-card__content {
+        padding: 10px 10px 12px;
+    }
+
+    .event-card__info {
+        font-size: 0.9rem;
+        margin-bottom: 4px;
+    }
+
+    .event-card__editor {
+        gap: 8px;
+        padding: 10px 10px 12px;
+    }
+
+    .event-card__editor label {
+        font-size: 0.75rem;
+    }
+
+    .event-card__editor input {
+        padding: 6px 8px;
+        font-size: 13px;
+    }
+
+    .event-card__editor-actions {
+        gap: 8px;
+        margin-top: 6px;
+    }
+
+    .btn-save,
+    .btn-cancel {
+        padding: 8px 10px;
+        font-size: 12px;
+    }
+}
