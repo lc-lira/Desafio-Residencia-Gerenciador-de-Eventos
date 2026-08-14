@@ -31,7 +31,7 @@ O sistema conta com controle de acesso, permitindo que administradores se cadast
 
 ---
 
-## 🚀 Como rodar o projeto localmente
+## Como rodar o projeto localmente
 
 ### Rodando o Backend
 1. Certifique-se de ter o **Java 17** e o **Maven** instalados na sua máquina.
