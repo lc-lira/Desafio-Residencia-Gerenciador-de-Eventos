@@ -9,7 +9,7 @@ O sistema conta com controle de acesso, permitindo que administradores se cadast
 ## Links Importantes
 
 *   **Aplicação Web (Frontend):** [Acesse o site hospedado na Vercel](https://gerenciador-de-eventos-web.vercel.app)
-*   **Documentação da API (Swagger):**(https://desafio-residencia-gerenciador-de.onrender.com/swagger-ui/index.html)
+*   **Documentação da API (Swagger):**[Acesse a documentação da API](https://desafio-residencia-gerenciador-de.onrender.com/swagger-ui/index.html)
 
 ---
 
