@@ -50,3 +50,57 @@
 .header__button:hover {
     opacity: 0.88;
 }
+
+@media (max-width: 768px) {
+    .header {
+        padding: 14px 16px;
+    }
+
+    .header__title {
+        font-size: 1.1rem;
+    }
+
+    .header__actions {
+        gap: 12px;
+    }
+
+    .header__user {
+        font-size: 0.95rem;
+    }
+
+    .header__button {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 12px 12px;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .header__brand {
+        gap: 8px;
+    }
+
+    .header__title {
+        font-size: 1rem;
+    }
+
+    .header__actions {
+        gap: 8px;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .header__user {
+        font-size: 0.85rem;
+    }
+
+    .header__button {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+    }
+}
