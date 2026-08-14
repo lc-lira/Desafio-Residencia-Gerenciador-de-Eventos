@@ -25,3 +25,5 @@ public record LocalizacaoDTO(
         @Pattern(regexp = "^[A-Z]{2}$", message = "UF deve ter 2 letras maiúsculas")
         String uf) {
 }
+
+
