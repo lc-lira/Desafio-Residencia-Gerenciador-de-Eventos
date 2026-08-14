@@ -10,7 +10,7 @@ O sistema conta com controle de acesso, permitindo que administradores se cadast
 
 *   **Aplicação Web (Frontend):** [Acesse o site hospedado na Vercel](https://gerenciador-de-eventos-web.vercel.app)
 *   **Documentação da API (Swagger):**[Acesse a documentação da API](https://desafio-residencia-gerenciador-de.onrender.com/swagger-ui/index.html)
-
+> **Nota:** Como o back-end está hospedado no plano gratuito do Render, a API pode levar cerca de 1 a 3 minutos para "acordar" na primeira requisição do dia.
 ---
 
 ## Tecnologias Utilizadas
