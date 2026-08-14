@@ -25,7 +25,6 @@ public record EventoRequestDTO(
     @Valid
     LocalizacaoDTO localizacao,
 
-    @NotBlank(message = "URL da imagem é obrigatória")
     @Column(columnDefinition = "TEXT")
     String imagem
 ) {
