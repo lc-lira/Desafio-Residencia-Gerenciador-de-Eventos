@@ -41,6 +41,35 @@ export function FormEvento({ onEventoCriado }) {
             }
         }))
     }
+    async function buscarCep(cep) {
+        const cepLimpo = cep.replace(/\D/g, ''); 
+        
+        if (cepLimpo.length !== 8) return; 
+
+        try {
+            const response = await fetch(`https://viacep.com.br/ws/${cepLimpo}/json/`);
+            const data = await response.json();
+
+            if (!data.erro) {
+                setForm(prev => ({
+                    ...prev,
+                    localizacao: {
+                        ...prev.localizacao,
+                        logradouro: data.logradouro,
+                        bairro: data.bairro,
+                        cidade: data.localidade, 
+                        uf: data.uf,
+                    }
+                }));
+                setErro('');
+            } else {
+                setErro('CEP não encontrado.');
+            }
+        } catch (error) {
+            console.error('Erro ao buscar CEP:', error);
+            setErro('Erro ao consultar o CEP. Tente preencher manualmente.');
+        }
+    }
 
     function comprimirImagem(file) {
         return new Promise((resolve, reject) => {
@@ -168,103 +197,34 @@ export function FormEvento({ onEventoCriado }) {
             {erro && <div className='erro'>{erro}</div>}
 
             <form onSubmit={handleSubmit}>
-                <input
-                    type='text'
-                    name='nome'
-                    placeholder='Nome do evento'
-                    value={form.nome}
-                    onChange={handleInputChange}
-                    required
-                />
-
-                <input
-                    type='datetime-local'
-                    name='dataInicio'
-                    placeholder='Data início'
-                    value={form.dataInicio}
-                    onChange={handleInputChange}
-                    required
-                />
-
-                <input
-                    type='datetime-local'
-                    name='dataFim'
-                    placeholder='Data fim'
-                    value={form.dataFim}
-                    onChange={handleInputChange}
-                    required
-                />
+                <input type='text' name='nome' placeholder='Nome do evento' value={form.nome} onChange={handleInputChange} required />
+                <input type='datetime-local' name='dataInicio' placeholder='Data início' value={form.dataInicio} onChange={handleInputChange} required />
+                <input type='datetime-local' name='dataFim' placeholder='Data fim' value={form.dataFim} onChange={handleInputChange} required />
 
                 <h3>Localização</h3>
-
+                
                 <input
                     type='text'
                     name='cep'
-                    placeholder='CEP'
+                    placeholder='CEP (somente números)'
+                    maxLength='9'
                     value={form.localizacao.cep}
                     onChange={handleLocalizacaoChange}
+                    onBlur={(e) => buscarCep(e.target.value)} 
                     required
                 />
 
-                <input
-                    type='text'
-                    name='logradouro'
-                    placeholder='Logradouro'
-                    value={form.localizacao.logradouro}
-                    onChange={handleLocalizacaoChange}
-                    required
-                />
-
-                <input
-                    type='text'
-                    name='numero'
-                    placeholder='Número'
-                    value={form.localizacao.numero}
-                    onChange={handleLocalizacaoChange}
-                    required
-                />
-
-                <input
-                    type='text'
-                    name='complemento'
-                    placeholder='Complemento'
-                    value={form.localizacao.complemento}
-                    onChange={handleLocalizacaoChange}
-                />
-
-                <input
-                    type='text'
-                    name='bairro'
-                    placeholder='Bairro'
-                    value={form.localizacao.bairro}
-                    onChange={handleLocalizacaoChange}
-                    required
-                />
-
-                <input
-                    type='text'
-                    name='cidade'
-                    placeholder='Cidade'
-                    value={form.localizacao.cidade}
-                    onChange={handleLocalizacaoChange}
-                    required
-                />
-
-                <input
-                    type='text'
-                    name='uf'
-                    placeholder='UF'
-                    maxLength='2'
-                    value={form.localizacao.uf}
-                    onChange={handleLocalizacaoChange}
-                    required
-                />
+                <input type='text' name='logradouro' placeholder='Logradouro' value={form.localizacao.logradouro} onChange={handleLocalizacaoChange} required />
+                <input type='text' name='numero' placeholder='Número' value={form.localizacao.numero} onChange={handleLocalizacaoChange} required />
+                <input type='text' name='complemento' placeholder='Complemento' value={form.localizacao.complemento} onChange={handleLocalizacaoChange} />
+                <input type='text' name='bairro' placeholder='Bairro' value={form.localizacao.bairro} onChange={handleLocalizacaoChange} required />
+                <input type='text' name='cidade' placeholder='Cidade' value={form.localizacao.cidade} onChange={handleLocalizacaoChange} required />
+                <input type='text' name='uf' placeholder='UF' maxLength='2' value={form.localizacao.uf} onChange={handleLocalizacaoChange} required />
 
                 <div className='upload-imagem'>
                     <label htmlFor='imagem-evento' className='upload-imagem__button'>
                         Escolher arquivo
                     </label>
-
                     <input
                         id='imagem-evento'
                         type='file'
@@ -272,14 +232,10 @@ export function FormEvento({ onEventoCriado }) {
                         accept='image/*'
                         onChange={(e) => {
                             const arquivo = e.target.files?.[0]
-                            setForm(prev => ({
-                                ...prev,
-                                imagem: arquivo || ''
-                            }))
+                            setForm(prev => ({ ...prev, imagem: arquivo || '' }))
                             setNomeArquivo(arquivo ? arquivo.name : 'Nenhum arquivo selecionado')
                         }}
                     />
-
                     <span className='upload-imagem__nome'>{nomeArquivo}</span>
                 </div>
 
